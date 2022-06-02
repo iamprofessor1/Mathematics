@@ -27,7 +27,8 @@ bool isPrime(ll n)
         return false;
     }
     if (n == 2 || n == 3)
-    { // because 2 and 3 is prime number
+    {
+        // because 2 and 3 is prime number
         return true;
     }
     if ((n % 2) == 0 || (n % 3) == 0)
@@ -50,7 +51,7 @@ bool isPrime(ll n)
 void primeFactors(ll n)
 {
     // if all prime factors are multiplied then it will give original number
-    map<ll, ll> m; // used for storage
+    // map<ll, ll> m; // used for storage
     if (n <= 1)
     {
         return;
@@ -95,27 +96,30 @@ void primeFactors(ll n)
     // Change fundtion return type;
 }
 
-void printAllDivisors(ll n)
+void printAllDivisors(long long n)
 {
-    ll i;
+    long long i;
     // Print all divisor range [1 ,sqrt(n));
-    for (i = 0; i * i < n; i++)
+    for (i = 1; i * i < n; i++)
     {
         if (n % i == 0)
         {
             cout << i << " ";
         }
+    }
+    if (i - (n / i) == 1)
+    {
+        i--;
     }
     // Print all divisor range [sqrt(n),n];
     for (; i >= 1; i--)
     {
         if (n % i == 0)
         {
-            cout << i << " ";
+            cout << n / i << " ";
         }
     }
 }
-
 // return all primes b/w 1 to n
 vector<long long> sieve(long long n)
 {
@@ -123,6 +127,7 @@ vector<long long> sieve(long long n)
     // Earlier Consider all number are primes
     // Time Complexity - O(n Log logn);
     vector<long long> primes;
+    // To save prime number till 
     for (long long i = 2; i * i <= n; i++)
     {
         if (isprime[i])
@@ -143,12 +148,9 @@ vector<long long> sieve(long long n)
     return primes;
 }
 
-
-
-
-
 int main()
 {
+    printAllDivisors(30);
 
     return 0;
 }
